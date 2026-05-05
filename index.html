@@ -1,220 +1,942 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caroline Memishian</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Caroline Peaches Memishian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,30..100;1,9..144,300..900,30..100&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate-bg: #8a9bb5;
+    --slate-light: #b0bdd0;
+    --slate-mid: #6a7d99;
+    --slate-deep: #2a3855;
+    --slate-ink: #1a2238;
+
+    --moss-bg: #6b7a4a;
+    --moss-light: #8a9a5a;
+    --moss-cream: #f0d8a0;
+    --moss-ink: #2a3018;
+
+    --pist-bg: #d8e0b5;
+    --pist-light: #e8eecc;
+    --pist-deep: #3a4a20;
+
+    --cream: #f5f0e3;
+    --cream-soft: #faf6ec;
+    --ink: #1a2238;
+    --ink-soft: #2a3855;
+    --ink-muted: #5a6578;
+    --rule: rgba(26, 34, 56, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--cream);
+    border-bottom: 1px solid rgba(26, 34, 56, 0.1);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav .mark {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    color: var(--slate-ink);
+  }
+  nav .mark em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--slate-deep);
+    font-size: 1.18em;
+    line-height: 0.85;
+    vertical-align: -0.03em;
+  }
+
+  nav ul { display: flex; gap: 32px; list-style: none; }
+
+  nav a {
+    color: var(--slate-ink);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  nav a:hover { color: var(--slate-deep); }
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--slate-ink);
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after { width: 100%; }
+
+  @media (max-width: 720px) {
+    nav { padding: 14px 20px; }
+    nav ul { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 140px 8vw 80px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: center;
+    z-index: 2;
+    background: var(--cream);
+    color: var(--slate-ink);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 12%;
+    right: -8%;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, var(--slate-light) 0%, transparent 65%);
+    border-radius: 50%;
+    z-index: 0;
+    filter: blur(40px);
+    opacity: 0.45;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    left: -10%;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, var(--pist-bg) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    opacity: 0.5;
+    filter: blur(40px);
+  }
+
+  .hero-text, .hero-visual {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-text { animation: fadeUp 0.9s ease-out both; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--slate-deep);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--slate-deep);
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+    color: var(--slate-ink);
+  }
+
+  .hero h1 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--slate-deep);
+    letter-spacing: -0.01em;
+    font-size: 1.25em;
+    line-height: 0.85;
+    vertical-align: -0.04em;
+  }
+
+  .hero-lede {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--slate-ink);
+    max-width: 520px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+  }
+
+  .hero-lede .underline {
+    background: linear-gradient(transparent 60%, var(--moss-cream) 60%);
+    padding: 0 2px;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 26px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--slate-ink);
+    color: var(--cream);
+  }
+  .btn-primary:hover {
+    background: var(--slate-deep);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--slate-ink);
+    border: 1px solid var(--slate-ink);
+  }
+  .btn-ghost:hover {
+    background: var(--slate-ink);
+    color: var(--cream);
+  }
+
+  .btn .arrow { transition: transform 0.25s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  .hero-visual {
+    aspect-ratio: 4/5;
+    max-width: 440px;
+    justify-self: end;
+    animation: fadeUp 1.1s 0.15s ease-out both;
+  }
+
+  .headshot-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px -20px rgba(26, 34, 56, 0.35);
+    transform: rotate(-1.5deg);
+  }
+
+  .headshot-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.05) contrast(1.02);
+  }
+
+  .badge {
+    position: absolute;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    padding: 14px 18px;
+    border-radius: 100px;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    color: var(--slate-ink);
+    text-decoration: none;
+    box-shadow: 0 8px 24px -8px rgba(26, 34, 56, 0.25);
+    z-index: 10;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+  }
+
+  .badge:hover {
+    box-shadow: 0 12px 32px -8px rgba(26, 34, 56, 0.35);
+  }
+  .badge em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.18em;
+    line-height: 0.85;
+    vertical-align: -0.03em;
+  }
+
+  .badge-1 {
+    top: -16px;
+    left: -32px;
+    transform: rotate(-6deg);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .badge-2 {
+    bottom: 30px;
+    right: -40px;
+    transform: rotate(4deg);
+    background: var(--moss-cream);
+    color: var(--moss-ink);
+    animation: float 7s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50% { transform: translateY(-8px) rotate(-4deg); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 120px 24px 60px;
+      gap: 50px;
+    }
+    .hero-visual { max-width: 320px; justify-self: center; }
+    .badge-1 { left: -16px; top: -10px; }
+    .badge-2 { right: -20px; }
+  }
+
+  section {
+    position: relative;
+    z-index: 2;
+    padding: 120px 8vw;
+  }
+
+  .section-header {
+    margin-bottom: 80px;
+    max-width: 900px;
+  }
+
+  .section-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    font-size: 1.22em;
+    line-height: 0.85;
+    vertical-align: -0.03em;
+  }
+
+  /* ABOUT - Slate Blue */
+  .about {
+    background: var(--slate-bg);
+    color: var(--slate-ink);
+  }
+  .about .section-num { color: var(--slate-deep); }
+  .about .section-title { color: var(--slate-ink); }
+  .about .section-title em { color: var(--slate-deep); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-aside { position: sticky; top: 120px; }
+
+  .pull-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 28px;
+    line-height: 1.3;
+    color: var(--slate-ink);
+    border-left: 2px solid var(--slate-deep);
+    padding-left: 24px;
+    margin-bottom: 24px;
+  }
+
+  .pull-quote-attr {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--slate-ink);
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-left: 26px;
+  }
+
+  .about-body p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--slate-ink);
+    margin-bottom: 24px;
+  }
+
+  .about-body p:first-child::first-letter {
+    font-family: 'Fraunces', serif;
+    font-size: 72px;
+    font-weight: 400;
+    float: left;
+    line-height: 0.85;
+    margin: 4px 12px 0 0;
+    color: var(--slate-deep);
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-aside { position: static; }
+  }
+
+  /* EXPERIENCE - Cream */
+  .experience { background: var(--cream-soft); }
+  .experience .section-num { color: var(--slate-deep); }
+  .experience .section-title em { color: var(--slate-deep); }
+
+  .timeline { max-width: 1100px; margin: 0 auto; }
+
+  .role {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 48px;
+    padding: 36px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .role:last-child { border-bottom: 1px solid var(--rule); }
+
+  .role-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-muted);
+    padding-top: 4px;
+  }
+
+  .role-content h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  .role-org {
+    font-size: 15px;
+    color: var(--slate-deep);
+    font-weight: 500;
+    margin-bottom: 14px;
+    letter-spacing: 0.01em;
+  }
+
+  .role-desc {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 720px;
+  }
+
+  @media (max-width: 720px) {
+    .role { grid-template-columns: 1fr; gap: 8px; padding: 28px 0; }
+  }
+
+  /* INVOLVEMENT - Moss */
+  .involvement {
+    background: var(--moss-bg);
+    color: var(--cream);
+  }
+
+  .involvement .section-title { color: var(--cream); }
+  .involvement .section-num { color: var(--moss-cream); }
+  .involvement .section-title em { color: var(--moss-cream); }
+
+  .involvement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+
+  .inv-card {
+    border: 1px solid rgba(245, 240, 227, 0.18);
+    padding: 32px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    background: rgba(245, 240, 227, 0.04);
+  }
+
+  .inv-card:hover {
+    background: rgba(240, 216, 160, 0.1);
+    border-color: var(--moss-cream);
+    transform: translateY(-4px);
+  }
+
+  .inv-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--moss-cream);
+    margin-bottom: 14px;
+  }
+
+  .inv-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    color: var(--cream);
+  }
+
+  .inv-org {
+    font-size: 13px;
+    color: var(--moss-cream);
+    opacity: 0.85;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .inv-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(245, 240, 227, 0.85);
+  }
+
+  /* PROJECTS - Pistachio light */
+  .projects {
+    background: var(--pist-light);
+    color: var(--pist-deep);
+  }
+  .projects .section-num { color: var(--pist-deep); }
+  .projects .section-title em { color: var(--pist-deep); opacity: 0.8; }
+
+  .project-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    padding: 56px 0;
+    border-top: 1px solid rgba(58, 74, 32, 0.15);
+    align-items: start;
+  }
+
+  .project:last-child { border-bottom: 1px solid rgba(58, 74, 32, 0.15); }
+
+  .project-meta {
+    font-size: 13px;
+    color: var(--pist-deep);
+    opacity: 0.7;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-content h3 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    color: var(--pist-deep);
+  }
+
+  .project-content h3 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--pist-deep);
+    opacity: 0.8;
+    font-size: 1.22em;
+    line-height: 0.85;
+    vertical-align: -0.03em;
+  }
+
+  .project-content p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--pist-deep);
+    opacity: 0.85;
+    max-width: 680px;
+  }
+
+  .project.coming { opacity: 0.55; }
+
+  @media (max-width: 720px) {
+    .project { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
+  }
+
+  /* CONTACT - Cream (bookends with hero) */
+  .contact {
+    text-align: center;
+    padding: 140px 8vw;
+    background: var(--cream);
+    color: var(--slate-ink);
+    position: relative;
+    overflow: hidden;
+    margin-top: -1px;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--slate-light) 0%, transparent 60%);
+    border-radius: 50%;
+    z-index: 0;
+    opacity: 0.35;
+    filter: blur(50px);
+    pointer-events: none;
+  }
+
+  .contact > * { position: relative; z-index: 1; }
+
+  .contact .section-num { color: var(--slate-deep); }
+
+  .contact h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 24px;
+    color: var(--slate-ink);
+  }
+
+  .contact h2 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--slate-deep);
+    font-weight: 500;
+    font-size: 1.22em;
+    line-height: 0.85;
+    vertical-align: -0.03em;
+  }
+
+  .contact p {
+    font-size: 19px;
+    color: var(--slate-ink);
+    opacity: 0.85;
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.55;
+  }
+
+  .contact .cta-row { justify-content: center; }
+
+  footer {
+    border-top: 1px solid rgba(26, 34, 56, 0.15);
+    padding: 32px 8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--slate-ink);
+    opacity: 0.8;
+    background: var(--cream);
+    position: relative;
+    z-index: 2;
+  }
+
+  footer .heart { color: var(--moss-bg); }
+
+  @media (max-width: 600px) {
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <span class="logo">Caroline Peaches Memishian</span>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#involvement">Involvement</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<nav>
+  <div class="mark">Caroline <em>Peaches</em> Memishian</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#involvement">Involvement</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-content">
-      <div class="hero-photo">
-        <div class="photo-circle"><img src="headshot.jpg" alt="Caroline Peaches Memishian" /></div>
-      </div>
-      <div class="hero-text">
-        <p class="label">Product Manager & MBA Student</p>
-        <h1>Hi, I'm Caroline<br>"Peaches" Memishian.</h1>
-        <p>
-          MIT Sloan MBA student with a background in product management, consulting,
-          and business operations. I love building things that make people's lives easier.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-        </div>
-      </div>
+<header class="hero">
+  <div class="hero-text">
+    <span class="eyebrow">Product Manager · MBA Student</span>
+    <h1>Hi, I'm Caroline <em>Peaches</em> Memishian.</h1>
+    <p class="hero-lede">
+      MIT Sloan MBA student with a background in product management, consulting, and business operations. I love <span class="underline">building things that make people's lives easier</span>.
+    </p>
+    <div class="cta-row">
+      <a href="#projects" class="btn btn-primary">View Projects <span class="arrow">→</span></a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
     </div>
-  </section>
+  </div>
 
-  <hr class="divider" />
+  <div class="hero-visual">
+    <a href="#experience" class="badge badge-1"><em>currently in</em> Boston ✦</a>
+    <div class="headshot-frame">
+      <img src="headshot.jpg" alt="Caroline Memishian" />
+    </div>
+    <a href="#contact" class="badge badge-2">say hi → <em>peaches</em></a>
+  </div>
+</header>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <p class="section-label">About</p>
-    <h2>Background</h2>
-    <p>
-      I'm an MBA candidate at MIT Sloan, where I'm a Dean's Fellow and pursuing a certificate
-      in Product Management. I studied Computer Science at Vanderbilt with a minor in
-      Engineering Management, which first got me interested in how technical and business
-      decisions come together.
-    </p>
-    <br />
-    <p>
-      Before business school, I spent four years at Accenture as a management consultant,
-      then joined Glassdoor. There, I worked across go-to-market strategy, strategic and
-      business operations, and later transitioned into product management on the Employer
-      Branding team.
-    </p>
-    <br />
-    <p>
-      Those experiences shaped how I think about building products—grounded in data, centered
-      on users, and focused on driving real impact. I'm especially drawn to roles where I can
-      stay close to both the problem and the people using the product, and help turn ambiguous
-      ideas into something tangible.
-    </p>
-  </section>
+<section class="about" id="about">
+  <div class="section-header reveal">
+    <span class="section-num">— 01 / About</span>
+    <h2 class="section-title">A little <em>background</em>.</h2>
+  </div>
 
-  <hr class="divider" />
+  <div class="about-grid">
+    <aside class="about-aside reveal">
+      <p class="pull-quote">"Grounded in data, centered on users, focused on real impact."</p>
+      <p class="pull-quote-attr">— How I think about product</p>
+    </aside>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <p class="section-label">Experience</p>
-    <h2>Where I've Been</h2>
+    <div class="about-body reveal">
+      <p>
+        I'm an MBA candidate at MIT Sloan, where I'm a Dean's Fellow and pursuing a certificate in Product Management. I studied Computer Science at Vanderbilt with a minor in Engineering Management, which first got me interested in how technical and business decisions come together.
+      </p>
+      <p>
+        Before business school, I spent four years at Accenture as a management consultant, then joined Glassdoor. There, I worked across go-to-market strategy, strategic and business operations, and later transitioned into product management on the Employer Branding team.
+      </p>
+      <p>
+        Those experiences shaped how I think about building products. I'm especially drawn to roles where I can stay close to both the problem and the people using the product, and help turn ambiguous ideas into something tangible.
+      </p>
+    </div>
+  </div>
+</section>
 
-    <div class="timeline">
+<section class="experience" id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">— 02 / Experience</span>
+    <h2 class="section-title">Where I've <em>been</em>.</h2>
+  </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="date">2025 – Present</p>
+  <div class="timeline">
+    <div class="role reveal">
+      <div class="role-year">2025 — Present</div>
+      <div class="role-content">
         <h3>MBA Student</h3>
-        <p class="company">MIT Sloan School of Management</p>
-        <p>Dean's Fellow (top 5% of incoming class) pursuing a Product Management Certificate. Focused on product, technology strategy, and leadership.</p>
+        <div class="role-org">MIT Sloan School of Management</div>
+        <p class="role-desc">Dean's Fellow (top 5% of incoming class) pursuing a Product Management Certificate. Focused on product, technology strategy, and leadership.</p>
       </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="date">2025</p>
+    <div class="role reveal">
+      <div class="role-year">2025</div>
+      <div class="role-content">
         <h3>Product Manager</h3>
-        <p class="company">Glassdoor</p>
-        <p>Spearheaded requirements and design discovery for an AI-driven employer branding feature, boosting usability and engagement by 20%. Collaborated with UX researchers, ML, and engineering across 3 iterations of feature concepts.</p>
+        <div class="role-org">Glassdoor</div>
+        <p class="role-desc">Spearheaded requirements and design discovery for an AI-driven employer branding feature, boosting usability and engagement by 20%. Collaborated with UX researchers, ML, and engineering across 3 iterations of feature concepts.</p>
       </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="date">2024 – 2025</p>
+    <div class="role reveal">
+      <div class="role-year">2024 — 2025</div>
+      <div class="role-content">
         <h3>Manager, Business Operations</h3>
-        <p class="company">Glassdoor</p>
-        <p>Led an 8-person cross-functional team to launch a new branding product beta, achieving 110% of client targets. Built opportunity sizing models identifying $100–135M in potential revenue and revamped pricing strategy to recover $60M in lost revenue.</p>
+        <div class="role-org">Glassdoor</div>
+        <p class="role-desc">Led an 8-person cross-functional team to launch a new branding product beta, achieving 110% of client targets. Built opportunity sizing models identifying $100–135M in potential revenue and revamped pricing strategy to recover $60M in lost revenue.</p>
       </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="date">2022 – 2024</p>
+    <div class="role reveal">
+      <div class="role-year">2022 — 2024</div>
+      <div class="role-content">
         <h3>Senior Associate, Business Operations</h3>
-        <p class="company">Glassdoor</p>
-        <p>Advised C-Suite on annual strategic planning, developed prioritization frameworks, and drove GTM strategy projects that uncovered $100M in additional revenue opportunities.</p>
+        <div class="role-org">Glassdoor</div>
+        <p class="role-desc">Advised C-Suite on annual strategic planning, developed prioritization frameworks, and drove GTM strategy projects that uncovered $100M in additional revenue opportunities.</p>
       </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="date">2018 – 2022</p>
+    <div class="role reveal">
+      <div class="role-year">2018 — 2022</div>
+      <div class="role-content">
         <h3>Management Consultant</h3>
-        <p class="company">Accenture</p>
-        <p>Advised Fortune 500 Life Sciences and Retail clients on strategy, operations, and technology transformation. Facilitated 50+ workshops for organizations with 10,000+ employees.</p>
+        <div class="role-org">Accenture</div>
+        <p class="role-desc">Advised Fortune 500 Life Sciences and Retail clients on strategy, operations, and technology transformation. Facilitated 50+ workshops for organizations with 10,000+ employees.</p>
       </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="date">2014 – 2018</p>
+    <div class="role reveal">
+      <div class="role-year">2014 — 2018</div>
+      <div class="role-content">
         <h3>B.S. Computer Science, Minor in Engineering Management</h3>
-        <p class="company">Vanderbilt University School of Engineering</p>
-        <p>Built a foundation at the intersection of technical and business thinking.</p>
+        <div class="role-org">Vanderbilt University School of Engineering</div>
+        <p class="role-desc">Built a foundation at the intersection of technical and business thinking.</p>
       </div>
-
     </div>
-  </section>
+  </div>
+</section>
 
-  <hr class="divider" />
+<section class="involvement" id="involvement">
+  <div class="section-header reveal">
+    <span class="section-num">— 03 / Beyond the Desk</span>
+    <h2 class="section-title">Leadership &amp; <em>Involvement</em>.</h2>
+  </div>
 
-  <!-- INVOLVEMENT -->
-  <section id="involvement">
-    <p class="section-label">Leadership & Involvement</p>
-    <h2>Beyond the Desk</h2>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="date">2025 – Present</p>
-        <h3>Co-Organizer, PM Study Tour</h3>
-        <p class="company">MIT Sloan School of Management</p>
-        <p>Co-created and launched a first-of-its-kind PM Study Tour to NYC for 25 MIT Sloan students. Secured meetings at Stripe, Meta, Snap, Justworks, and EliseAI, and conducted panel interviews with 4 product leaders on PM careers and culture.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="date">2025 – Present</p>
-        <h3>Operations Lead, MIT Sloan Tech Summit</h3>
-        <p class="company">MIT Sloan School of Management</p>
-        <p>Contributed to operations and logistics for a 400-person, 2-day technology conference. Managed 3 external vendor relationships, tracked event budget, and owned end-to-end speaker experience across both conference days.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="date">2022 – 2025</p>
-        <h3>Co-Chair, Asian Impact Network</h3>
-        <p class="company">Glassdoor</p>
-        <p>Led a 300+ member employee resource group, driving programming, community, and advocacy initiatives across the company.</p>
-      </div>
-
+  <div class="involvement-grid">
+    <div class="inv-card reveal">
+      <div class="inv-year">2025 — Present</div>
+      <h3>Co-Organizer, PM Study Tour</h3>
+      <div class="inv-org">MIT Sloan School of Management</div>
+      <p>Co-created and launched a first-of-its-kind PM Study Tour to NYC for 25 MIT Sloan students. Secured meetings at Stripe, Meta, Snap, Justworks, and EliseAI, and conducted panel interviews with 4 product leaders on PM careers and culture.</p>
     </div>
-  </section>
 
-  <hr class="divider" />
+    <div class="inv-card reveal">
+      <div class="inv-year">2025 — Present</div>
+      <h3>Operations Lead, MIT Sloan Tech Summit</h3>
+      <div class="inv-org">MIT Sloan School of Management</div>
+      <p>Contributed to operations and logistics for a 400-person, 2-day technology conference. Managed 3 external vendor relationships, tracked event budget, and owned end-to-end speaker experience across both conference days.</p>
+    </div>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <p class="section-label">Projects</p>
-    <h2>What I'm Building</h2>
+    <div class="inv-card reveal">
+      <div class="inv-year">2022 — 2025</div>
+      <h3>Co-Chair, Asian Impact Network</h3>
+      <div class="inv-org">Glassdoor</div>
+      <p>Led a 300+ member employee resource group, driving programming, community, and advocacy initiatives across the company.</p>
+    </div>
+  </div>
+</section>
 
-    <div class="projects-grid">
+<section class="projects" id="projects">
+  <div class="section-header reveal">
+    <span class="section-num">— 04 / Projects</span>
+    <h2 class="section-title">What I'm <em>building</em>.</h2>
+  </div>
 
-      <div class="project-card">
-        <span class="tag">Product Design & Development</span>
-        <h3>RackItUp: French Fry Packaging</h3>
+  <div class="project-list">
+    <div class="project reveal">
+      <div class="project-meta">Product Design &amp; Development</div>
+      <div class="project-content">
+        <h3>RackItUp: <em>French Fry Packaging</em></h3>
         <p>Redesigned takeout fry packaging to eliminate sogginess; led user research and prototyping of a dual-layer venting system, collaborating with MIT mechanical engineers and RISD design students to optimize airflow and heat retention.</p>
       </div>
+    </div>
 
-      <div class="project-card">
-        <span class="tag">Coming Soon</span>
+    <div class="project coming reveal">
+      <div class="project-meta">Coming Soon</div>
+      <div class="project-content">
         <h3>Project Two</h3>
         <p>Details coming soon. Check back for updates on what I'm working on.</p>
       </div>
+    </div>
 
-      <div class="project-card">
-        <span class="tag">Coming Soon</span>
+    <div class="project coming reveal">
+      <div class="project-meta">Coming Soon</div>
+      <div class="project-content">
         <h3>Project Three</h3>
         <p>Details coming soon. Check back for updates on what I'm working on.</p>
       </div>
-
     </div>
-  </section>
+  </div>
+</section>
 
-  <hr class="divider" />
+<section class="contact" id="contact">
+  <span class="section-num reveal">— 05 / Contact</span>
+  <h2 class="reveal">Let's <em>connect</em>.</h2>
+  <p class="reveal">Whether you want to chat about product, a project idea, or just say hello — my inbox is open.</p>
+  <div class="cta-row reveal">
+    <a href="mailto:caroline.memishian@gmail.com" class="btn btn-primary">Email Me <span class="arrow">→</span></a>
+    <a href="https://www.linkedin.com/in/caroline-memishian" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <p class="section-label">Contact</p>
-    <h2>Let's Connect</h2>
-    <p>
-      Whether you want to chat about product, a project idea, or just say hello —
-      my inbox is open.
-    </p>
-    <div class="contact-links">
-      <a href="mailto:caroline.memishian@gmail.com" class="btn btn-primary">Email Me</a>
-      <a href="https://www.linkedin.com/in/caroline-memishian" target="_blank" class="btn btn-secondary">LinkedIn</a>
-    </div>
-  </section>
+<footer>
+  <div>© 2026 Caroline Memishian</div>
+  <div>Built with <span class="heart">♥</span> in Boston, MA</div>
+</footer>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Caroline Memishian. Built with care.</p>
-  </footer>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
