@@ -4,6 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Caroline Peaches Memishian</title>
+<meta name="description" content="Caroline Peaches Memishian is an MIT Sloan MBA and product manager with experience building AI and B2B products at Microsoft and Glassdoor." />
+<meta property="og:title" content="Caroline Peaches Memishian · Product Manager" />
+<meta property="og:description" content="Product manager and MIT Sloan MBA building AI and B2B products grounded in customer needs, data, and measurable impact." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://memishian.com/" />
+<meta property="og:image" content="https://memishian.com/headshot.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,30..100;1,9..144,300..900,30..100&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -624,6 +630,26 @@
     max-width: 680px;
   }
 
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 18px;
+  }
+
+  .project-links a {
+    color: var(--pist-deep);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(58, 74, 32, 0.35);
+    transition: border-color 0.2s ease;
+  }
+
+  .project-links a:hover {
+    border-color: var(--pist-deep);
+  }
+
   .project.coming { opacity: 0.55; }
 
   @media (max-width: 720px) {
@@ -738,10 +764,10 @@
 
 <header class="hero">
   <div class="hero-text">
-    <span class="eyebrow">Product Manager · MBA Student</span>
+    <span class="eyebrow">Product Manager · MBA Student · AI Builder</span>
     <h1>Hi, I'm Caroline <em>Peaches</em> Memishian.</h1>
     <p class="hero-lede">
-      MIT Sloan MBA student with a background in product management, consulting, and business operations. I love <span class="underline">building things that make people's lives easier</span>.
+      Product manager and MIT Sloan MBA student with experience building AI and B2B products at Microsoft and Glassdoor. I turn <span class="underline">customer needs and ambiguous problems into products teams can ship</span>.
     </p>
     <div class="cta-row">
       <a href="#projects" class="btn btn-primary">View Projects <span class="arrow">→</span></a>
@@ -775,10 +801,13 @@
         I'm an MBA candidate at MIT Sloan, where I'm a Dean's Fellow and pursuing a certificate in Product Management. I studied Computer Science at Vanderbilt with a minor in Engineering Management, which first got me interested in how technical and business decisions come together.
       </p>
       <p>
+        During my MBA, I joined Microsoft as a Product Manager Intern on Viva Glint, Microsoft's employee-listening product. I identified customer needs, defined product strategy and requirements, aligned cross-functional teams, and moved customer-facing survey experiences and internal AI productivity tools from discovery toward delivery.
+      </p>
+      <p>
         Before business school, I spent four years at Accenture as a management consultant, then joined Glassdoor. There, I worked across go-to-market strategy, strategic and business operations, and later transitioned into product management on the Employer Branding team.
       </p>
       <p>
-        Those experiences shaped how I think about building products. I'm especially drawn to roles where I can stay close to both the problem and the people using the product, and help turn ambiguous ideas into something tangible.
+        Those experiences shaped how I build: start with customer evidence, use data to clarify the opportunity, and align teams around a practical path to delivery. I'm especially drawn to AI and B2B products where thoughtful workflows can make complex work meaningfully easier.
       </p>
     </div>
   </div>
@@ -791,6 +820,15 @@
   </div>
 
   <div class="timeline">
+    <div class="role reveal">
+      <div class="role-year">Summer 2026</div>
+      <div class="role-content">
+        <h3>Product Manager Intern</h3>
+        <div class="role-org">Microsoft · Viva Glint</div>
+        <p class="role-desc">Built and launched a 0-to-1 internal AI product with three coordinated workflows for a 50-person product team, cutting pilot PMs' status-report preparation time by an estimated 40%. Shaped the FY27 survey-authoring strategy through customer research, product analytics, and cross-functional input, and drove a highly requested customer feature from discovery to engineering commitment in three weeks.</p>
+      </div>
+    </div>
+
     <div class="role reveal">
       <div class="role-year">2025 — Present</div>
       <div class="role-content">
@@ -892,15 +930,50 @@
 
   <div class="project-list">
     <div class="project reveal">
-      <div class="project-meta">Hackathon</div>
+      <div class="project-meta">Hackathon · Summer 2026</div>
       <div class="project-content">
-        <h3>BidSmart: <em>Sloan Course Selection Assistant</em></h3>
-        <p>Built a working web app to streamline MIT Sloan's course bidding process — a 5-question quiz generates personalized course recommendations and a defensible 1,000-point bid allocation across 120+ courses in under 60 seconds. <a href="https://sloan-course-guide.lovable.app/" target="_blank" rel="noopener" style="color: var(--pist-deep); font-weight: 500;">View live →</a></p>
+        <h3>PromptIQ: <em>Better Prompts, Before Send</em></h3>
+        <p>Placed 2nd out of 50 teams in the Workplace AI category at Microsoft's Global Intern Hackathon, which featured 200 projects overall and 1,100+ interns. Collected user feedback, translated prioritized needs into technical specifications, and built and tested two sub-agents for an interactive coach that helps users improve prompts before sending them to an AI model.</p>
+        <div class="project-links">
+          <a href="https://carolinememishian-alt.github.io/promptiq-demo/" target="_blank" rel="noopener">View live demo →</a>
+          <a href="https://github.com/carolinememishian-alt/promptiq-demo" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
       </div>
     </div>
 
     <div class="project reveal">
-      <div class="project-meta">Product Design &amp; Development</div>
+      <div class="project-meta">AI Product · Summer 2026</div>
+      <div class="project-content">
+        <h3>AI Planning Agent: <em>From Backlog to Briefing</em></h3>
+        <p>Built and shipped a multi-agent AI system for Azure DevOps, the platform product teams use to manage roadmaps and engineering work. Implemented prompts, workflow logic, and Azure DevOps and WorkIQ integrations to flag backlog issues, enrich work items with workplace signals, synthesize status, and generate leadership briefs. Created evaluation cases, debugged failures, and ran cross-functional bug bashes before rollout.</p>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div class="project-meta">AI Productivity · Summer 2026</div>
+      <div class="project-content">
+        <h3>AI Briefing Systems: <em>Research to Action</em></h3>
+        <p>Built two automated, source-backed briefing systems: AI Ways of Working translates public research into practical workflow upgrades for product, design, engineering, and strategy teams, while Enterprise AI Intelligence synthesizes platform news and adoption practices into an executive-ready weekly digest.</p>
+        <div class="project-links">
+          <a href="https://github.com/carolinememishian-alt/ai-ways-of-working-briefing" target="_blank" rel="noopener">Ways of Working archive →</a>
+          <a href="https://github.com/carolinememishian-alt/weekly-ai-news-briefing" target="_blank" rel="noopener">Enterprise AI archive →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div class="project-meta">Hackathon · Spring 2026</div>
+      <div class="project-content">
+        <h3>BidSmart: <em>Sloan Course Selection Assistant</em></h3>
+        <p>Built a working web app to streamline MIT Sloan's course bidding process — a 5-question quiz generates personalized course recommendations and a defensible 1,000-point bid allocation across 120+ courses in under 60 seconds.</p>
+        <div class="project-links">
+          <a href="https://sloan-course-guide.lovable.app/" target="_blank" rel="noopener">View live →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div class="project-meta">Product Design &amp; Development · Spring 2026</div>
       <div class="project-content">
         <h3>RackItUp: <em>French Fry Packaging</em></h3>
         <p>Redesigned takeout fry packaging to eliminate sogginess; led user research and prototyping of a dual-layer venting system, collaborating with MIT mechanical engineers and RISD design students to optimize airflow and heat retention.</p>
@@ -917,6 +990,7 @@
   <div class="cta-row reveal">
     <a href="mailto:caroline.memishian@gmail.com" class="btn btn-primary">Email Me <span class="arrow">→</span></a>
     <a href="https://www.linkedin.com/in/caroline-memishian" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/carolinememishian-alt" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
   </div>
 </section>
 
